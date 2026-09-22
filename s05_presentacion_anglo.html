@@ -98,7 +98,7 @@
             line-height: 1.6;
         }
 
-        /* Ícono de IA interactivo */
+        /* Ícono de IA interactivo (Gemini) */
         .ai-icon-wrapper {
             position: absolute;
             top: 2rem;
@@ -116,6 +116,12 @@
 
         .ai-icon-wrapper:hover .ai-icon {
             transform: scale(1.1);
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { filter: drop-shadow(0 0 2px rgba(0, 128, 128, 0.5)); }
+            to { filter: drop-shadow(0 0 8px rgba(0, 128, 128, 0.9)); }
         }
 
         .ai-tooltip {
@@ -179,6 +185,559 @@
             transition: width 0.3s ease;
             z-index: 100;
         }
+
+
+/* Estilos específicos añadidos para la Diapositiva 1 */
+    .two-column-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .interactive-btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .hover-btn {
+        position: relative;
+        background-color: var(--card-bg);
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .hover-btn:hover {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .hover-tooltip {
+        visibility: hidden;
+        width: 320px;
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        text-align: left;
+        border-radius: 8px;
+        padding: 15px;
+        position: absolute;
+        z-index: 10;
+        top: 130%;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 8px 25px rgba(0, 128, 128, 0.2);
+        border-top: 4px solid var(--primary-color);
+        opacity: 0;
+        transition: opacity 0.3s, top 0.3s;
+        font-size: 1rem;
+        font-weight: normal;
+        line-height: 1.5;
+    }
+
+    /* Triángulo del tooltip */
+    .hover-tooltip::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -10px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent var(--primary-color) transparent;
+    }
+
+    .hover-btn:hover .hover-tooltip {
+        visibility: visible;
+        opacity: 1;
+        top: 115%;
+    }
+
+    .minimalist-map {
+        background-color: #eaf4f4;
+        border-radius: 12px;
+        width: 100%;
+        height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(0, 128, 128, 0.2);
+    }
+
+.geographic-map {
+        background-color: #eaf4f4;
+        border-radius: 12px;
+        width: 100%;
+        height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(0, 128, 128, 0.2);
+    }
+
+.world-map-container {
+        background-color: #eaf4f4;
+        border-radius: 12px;
+        width: 100%;
+        height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(0, 128, 128, 0.2);
+    }
+
+/* Estilos específicos añadidos para la Diapositiva 2 actualizada */
+    .slide-2-grid-upper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .slide-2-grid-lower {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+        margin-top: 0.8rem;
+    }
+
+    .card-structured {
+        background-color: var(--card-bg);
+        padding: 1.2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 128, 128, 0.1);
+        border-top: 4px solid var(--primary-color);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-structured-title {
+        color: var(--primary-color);
+        font-size: 1.15rem;
+        font-weight: 800;
+        margin-top: 0;
+        margin-bottom: 0.6rem;
+        border-bottom: 2px solid rgba(0, 128, 128, 0.15);
+        padding-bottom: 0.4rem;
+    }
+/* Estilos específicos añadidos para la Diapositiva 3 */
+    .card-emphasized {
+        background-color: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 128, 128, 0.1);
+        border-top: 4px solid var(--primary-color);
+        font-size: 1.25rem; /* Tamaño de texto aumentado */
+        font-weight: bold;  /* Texto en negritas */
+        line-height: 1.5;
+        color: var(--primary-color); /* Cambio de color para mayor énfasis */
+    }
+
+    .citation-text {
+        display: block; /* Lo coloca en una nueva línea para mayor limpieza visual */
+        margin-top: 0.8rem;
+        font-size: 0.95rem; /* Menor tamaño */
+        font-style: italic; /* Cursiva */
+        font-weight: normal; /* Peso normal para contrastar con las negritas */
+        color: #5a6c7d; /* Color un poco más tenue que el texto principal */
+    }
+
+/* Estilos específicos añadidos para la Diapositiva 4 */
+    .centered-distinct-text {
+        text-align: center;
+        color: #c0392b; /* Un color terracota/rojo oscuro para contrastar elegantemente con el teal */
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-style: italic;
+        margin: 2.5rem auto;
+        padding: 1.5rem 2rem;
+        background-color: #fdf4f4;
+        border-radius: 12px;
+        border: 2px dashed #e74c3c;
+        max-width: 90%;
+        line-height: 1.6;
+        box-shadow: 0 4px 10px rgba(192, 57, 43, 0.05);
+    }
+
+    .card-with-title {
+        background-color: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 128, 128, 0.1);
+        border-top: 4px solid var(--primary-color);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-title-highlight {
+        color: var(--primary-color);
+        font-size: 1.6rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid rgba(0, 128, 128, 0.2);
+        padding-bottom: 0.8rem;
+        text-align: center;
+    }
+
+/* Estilos específicos actualizados para la Diapositiva 9 */
+    .ocde-full-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .ocde-card-full {
+        background-color: var(--card-bg);
+        padding: 1.2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 128, 128, 0.1);
+        border-top: 4px solid #e74c3c;
+        font-size: 1.1rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--text-color);
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Estilos del panel de pestañas */
+    .tabs-container {
+        margin-top: 1rem;
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 128, 128, 0.1);
+        overflow: hidden;
+        border-top: 4px solid var(--primary-color);
+    }
+
+    .tabs-header {
+        display: flex;
+        background-color: #eaf4f4;
+        border-bottom: 2px solid rgba(0, 128, 128, 0.15);
+    }
+
+    .tab-btn {
+        flex: 1;
+        background-color: transparent;
+        border: none;
+        padding: 1rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: var(--text-color);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .tab-btn:hover {
+        background-color: rgba(0, 128, 128, 0.1);
+        color: var(--primary-color);
+    }
+
+    .tab-btn.active {
+        background-color: var(--card-bg);
+        color: var(--primary-color);
+        border-bottom: 4px solid var(--primary-color);
+    }
+
+    .tab-content {
+        display: none;
+        padding: 1.5rem 2rem;
+        animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .tab-content.active {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .tab-text-pane {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        color: var(--text-color);
+        font-weight: 600;
+        border-left: 5px solid var(--primary-color);
+        padding-left: 1.2rem;
+    }
+
+    .tab-chart-pane {
+        background-color: #f8fcfc;
+        border: 2px dashed rgba(0, 128, 128, 0.3);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 400px;
+        color: var(--primary-color);
+        font-style: italic;
+        text-align: center;
+        padding: 1rem;
+    }
+
+/* Estilos específicos para la tabla de la Diapositiva 6 */
+    .table-container {
+        width: 100%;
+        max-height: 440px;
+        overflow-y: auto;
+        margin-top: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 128, 128, 0.1);
+        border: 1px solid rgba(0, 128, 128, 0.2);
+        background-color: var(--card-bg);
+    }
+
+    .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 0.95rem;
+    }
+
+    .comparison-table th {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 12px 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .comparison-table td {
+        padding: 10px 15px;
+        border-bottom: 1px solid #e2e8f0;
+        color: var(--text-color);
+        line-height: 1.4;
+    }
+
+    .comparison-table tr:nth-child(even) {
+        background-color: #f8fcfc;
+    }
+
+    .comparison-table tr:hover {
+        background-color: #eaf4f4;
+    }
+
+    .comparison-table td:first-child {
+        font-weight: bold;
+        color: var(--primary-color);
+        width: 20%;
+    }
+
+    .comparison-table td:not(:first-child) {
+        width: 40%;
+    }
+
+/* Estilos específicos añadidos para la Diapositiva 11 interactiva */
+    .slide-11-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+        margin-top: 1rem;
+        height: calc(100% - 140px);
+    }
+
+    .countries-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .country-btn {
+        background-color: var(--card-bg);
+        border: 2px solid rgba(0, 128, 128, 0.2);
+        border-left: 6px solid var(--primary-color);
+        padding: 1.2rem 1.5rem;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--text-color);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 128, 128, 0.05);
+        text-align: left;
+        width: 100%;
+    }
+
+    .country-btn:hover, .country-btn.active {
+        background-color: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+        transform: translateX(5px);
+    }
+
+    .info-display-panel {
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 8px 25px rgba(0, 128, 128, 0.1);
+        border-top: 4px solid var(--primary-color);
+        height: 100%;
+        max-height: 420px;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+
+    .info-content {
+        display: none;
+        animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .info-content.active {
+        display: block;
+    }
+
+    .info-content ul {
+        padding-left: 1.2rem;
+        margin: 0;
+    }
+
+    .info-content li {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+        color: var(--text-color);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+/* Estilos específicos para la diapositiva de Australia y Nueva Zelanda */
+    .anz-cards-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .anz-card {
+        background-color: var(--card-bg);
+        padding: 1.2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 128, 128, 0.1);
+        border-top: 4px solid var(--primary-color);
+        font-size: 1.05rem;
+        line-height: 1.5;
+    }
+
+    .anz-card-title {
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(0, 128, 128, 0.15);
+        padding-bottom: 0.3rem;
+    }
+
+    .anz-diagram-box {
+        background-color: #f0f7f7;
+        border: 2px solid rgba(0, 128, 128, 0.3);
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+        margin: 1rem 0;
+        text-align: center;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: var(--text-color);
+        font-weight: 600;
+    }
+
+    .anz-image-container {
+        background-color: #fff;
+        border: 1px solid rgba(0, 128, 128, 0.2);
+        border-radius: 8px;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+        margin-top: 1rem;
+        box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+/* Estilos específicos para la diapositiva de Bibliografía y Fuentes */
+    .bibliography-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 1rem;
+        height: calc(100% - 120px);
+        overflow-y: auto;
+    }
+
+    .bibliography-column {
+        background-color: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 128, 128, 0.1);
+        border-top: 4px solid var(--primary-color);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bibliography-title {
+        color: var(--primary-color);
+        font-size: 1.3rem;
+        font-weight: 800;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid rgba(0, 128, 128, 0.15);
+        padding-bottom: 0.5rem;
+    }
+
+    .bibliography-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .bibliography-item {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: var(--text-color);
+        text-align: justify;
+        border-left: 3px solid rgba(0, 128, 128, 0.3);
+        padding-left: 0.8rem;
+        word-break: break-word;
+    }
     </style>
 </head>
 <body>
@@ -195,270 +754,714 @@
         <!-- Portada -->
         <div class="slide active" id="slide-0">
             <div style="text-align: center; margin-top: 15vh;">
-                <h1>Título de la presentación: Los países angloparlantes[cite: 1]</h1>
-                <p class="highlight-text" style="border: none; justify-content: center; display: flex;">Clase: Política social comparada</p>
+                <h1>Los países angloparlantes</h1>
+                <p class="highlight-text" style="border: none; justify-content: center; display: flex;">Seminario de Análisis Comparado de Políticas Sociales 2027-1</p>
                 <p>Especialización en Desarrollo Social - Facultad de Economía, UNAM</p>
+		<p>Daniel Pliego Alcántara</p>
+		<p>Marvin Ivan Trejo Mendez</p>
             </div>
         </div>
+
+
+<!-- Diapositiva Índice / Agenda -->
+<div class="slide" id="slide-index">
+    <div class="ai-icon-wrapper">
+        <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+        </svg>
+        <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
+    </div>
+    
+    <h2>Contenido de la presentación</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;">
+        <!-- Columna 1 -->
+        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>1.</strong> ¿Quiénes son los países angloparlantes?
+            </div>
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>2.</strong> El modelo liberal de Esping-Andersen
+            </div>
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>3.</strong> Críticas y matices al régimen liberal
+            </div>
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>4.</strong> Diferentes perspectivas de análisis
+            </div>
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>5.</strong> Familia de naciones y comparación institucional
+            </div>
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>6.</strong> English awfulness reconsidered
+            </div>
+         <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>5.</strong> Los casos de Australia y Nueva Zelanda
+            </div>
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>7.</strong> Alta progresividad y paradoja redistributiva
+            </div>
+        </div>
+
+        <!-- Columna 2 -->
+        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>8.</strong> El caso de EEUU y sus matices
+            </div>
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>9.</strong> Respuestas a la crisis financiera de 2008
+            </div>
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>10.</strong> Respuestas a la pandemia de Covid 2020
+            </div>
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>11.</strong> ¿Cambios en el régimen de bienestar?
+            </div>
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>12.</strong> El Estado de bienestar temporal
+            </div>
+            <div class="card" style="padding: 0.9rem 1.2rem; font-size: 1.05rem;">
+                <strong>12.</strong> Referencias
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- Diapositiva 1 -->
         <div class="slide" id="slide-1">
-            <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini][cite: 1]</span>
+    <div class="ai-icon-wrapper">
+        <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+        </svg>
+        <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
+    </div>
+    
+    <h2>¿Quiénes son los países angloparlantes?</h2>
+    
+    <!-- Primera sección a dos columnas -->
+    <div class="two-column-layout" style="margin-top: 1rem;">
+        <div class="highlight-text" style="margin: 0;">
+            La palabra angloparlante es un término compuesto formado por la unión de dos elementos que provienen del latín.
+        </div>
+        <div class="interactive-btn-container">
+            <div class="hover-btn">
+                Anglo
+                <div class="hover-tooltip">
+                    <strong>Anglo:</strong> proviene del latín angli, que era el nombre de los anglos, una tribu germánica procedente de la península de la actual Dinamarca y Alemania que se asentó en las islas británicas durante el siglo V.
+                </div>
             </div>
-            <h2>Diapositiva 1. ¿Quiénes son los países angloparlantes?[cite: 1]</h2>
-            <div class="highlight-text">La palabra angloparlante es un término compuesto formado por la unión de dos elementos que provienen del latín.[cite: 1]</div>
-            
-            <div class="diagram-grid">
-                <div class="card"><strong>Anglo:</strong> proviene del latín angli, que era el nombre de los anglos, una tribu germánica procedente de la península de la actual Dinamarca y Alemania que se asentó en las islas británicas durante el siglo V.[cite: 1]</div>
-                <div class="card"><strong>Parlante:</strong> proviene del verbo parlar, que significa hablar o charlar, derivado del latín tardío parabolare que refiere a hablar, usar parábolas o palabras.[cite: 1]</div>
-                <div class="card">Un país angloparlante es aquel donde la lengua materna o principal de la gran mayoría de sus habitantes es el inglés.[cite: 1]</div>
-            </div>
-
-            <div class="highlight-text">Características Principales[cite: 1]</div>
-            <div class="diagram-grid">
-                <div class="card">El inglés es el idioma oficial o principal, utilizado en el gobierno, la educación, los medios de comunicación y la vida diaria.[cite: 1]</div>
-                <div class="card">Comparten elementos culturales e históricos vinculados con el idioma.[cite: 1]</div>
-                <div class="card">Castles y Pierson se enfocan en los Estados de bienestar de seis países angloparlantes desarrollados: Australia, Canadá, Irlanda, Nueva Zelanda, Reino Unido y Estados Unidos.[cite: 1]</div>
+            <div class="hover-btn">
+                Parlante
+                <div class="hover-tooltip">
+                    <strong>Parlante:</strong> proviene del verbo parlar, que significa hablar o charlar, derivado del latín tardío parabolare que refiere a hablar, usar parábolas o palabras.
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Segunda sección con Mapamundi Real -->
+    <h3 style="color: var(--primary-color); margin-top: 2rem; font-size: 1.8rem;">Países analizados por Castles & Pierson</h3>
+    <div class="two-column-layout">
+        <div class="world-map-container">
+            <!-- Planisferio vectorial con siluetas geográficas mundiales reales y los 6 países destacados -->
+            <svg viewBox="0 0 1000 500" style="width: 100%; height: 100%;">
+                <!-- Fondo de los continentes del mundo en tono sutil (resto del planeta) -->
+                <!-- Eurasia -->
+                <path d="M 450 80 Q 550 60 700 70 Q 850 90 900 150 Q 800 220 600 200 Q 500 180 450 150 Z" fill="#d2dede" opacity="0.4"/>
+                <!-- África -->
+                <path d="M 500 220 Q 580 230 560 380 Q 500 420 470 300 Z" fill="#d2dede" opacity="0.4"/>
+                <!-- Sudamérica -->
+                <path d="M 230 250 Q 300 270 270 420 Q 210 450 200 320 Z" fill="#d2dede" opacity="0.4"/>
+
+                <!-- PAÍSES DESTACADOS CON FORMA REAL -->
+                
+                <!-- 1. Canadá (Norteamérica superior) -->
+                <path d="M 100 80 C 130 70, 200 75, 270 85 C 290 110, 270 140, 240 150 C 200 140, 150 145, 120 135 Z" fill="var(--primary-color)" opacity="0.9"/>
+                <text x="145" y="115" font-size="14" fill="#ffffff" font-weight="bold">Canadá</text>
+
+                <!-- 2. Estados Unidos (Norteamérica central) -->
+                <path d="M 120 140 C 170 145, 210 140, 245 150 C 255 175, 240 200, 180 195 C 140 190, 125 170, 120 140 Z" fill="#e74c3c" opacity="0.9"/>
+                <text x="155" y="172" font-size="14" fill="#ffffff" font-weight="bold">EEUU</text>
+
+                <!-- 3. Reino Unido e Irlanda (Europa occidental insular) -->
+                <path d="M 485 110 C 495 105, 505 125, 495 135 C 485 130, 480 115, 485 110 Z" fill="var(--primary-color)" opacity="0.9"/>
+                <text x="420" y="95" font-size="13" fill="var(--text-color)" font-weight="bold">Reino Unido / Irlanda</text>
+                <line x1="490" y1="120" x2="520" y2="105" stroke="var(--primary-color)" stroke-width="1.5"/>
+
+                <!-- 4. Australia (Oceanía) -->
+                <path d="M 730 320 C 780 310, 850 315, 870 360 C 860 410, 780 430, 740 380 Z" fill="var(--primary-color)" opacity="0.9"/>
+                <text x="765" y="365" font-size="14" fill="#ffffff" font-weight="bold">Australia</text>
+
+                <!-- 5. Nueva Zelanda (Oceanía sur) -->
+                <path d="M 910 405 C 925 400, 930 435, 915 445 C 905 435, 905 415, 910 405 Z" fill="var(--primary-color)" opacity="0.9"/>
+                <text x="860" y="465" font-size="12" fill="var(--text-color)" font-weight="bold">Nueva Zelanda</text>
+                <line x1="912" y1="420" x2="890" y2="455" stroke="var(--primary-color)" stroke-width="1.5"/>
+            </svg>
+        </div>
+        
+        <div class="highlight-text" style="margin: 0; font-size: 1.4rem;">
+            El inglés es el idioma oficial o principal, utilizado en el gobierno, la educación, los medios de comunicación y la vida diaria. Estos países comparten elementos culturales e históricos vinculados con el idioma.
+        </div>
+    </div>
+</div>
 
         <!-- Diapositiva 2 -->
-        <div class="slide" id="slide-2">
-            <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini][cite: 1]</span>
-            </div>
-            <h2>Diapositiva 2. El modelo liberal de Esping-Andersen[cite: 1]</h2>
-            <div class="highlight-text">En su concepción original sobre los regímenes de Estado de bienestar, Esping-Andersen propuso el régimen liberal como uno de los tres grandes modelos de Estado de bienestar.[cite: 1]</div>
-            
-            <h3 style="color: var(--primary-color);">Características principales:[cite: 1]</h3>
-            <div class="diagram-grid">
-                <div class="card">Baja desmercantilización[cite: 1]</div>
-                <div class="card">Sistema fiscal y de transferencias poco redistributivo[cite: 1]</div>
-                <div class="card">Orientado a la asistencia de los pobres (poor relief)[cite: 1]</div>
-                <div class="card">Preferencia por el sector privado[cite: 1]</div>
-            </div>
+<div class="slide" id="slide-2">
+    <div class="ai-icon-wrapper">
+        <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+        </svg>
+        <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
+    </div>
+    
+    <h2>El modelo liberal de Esping-Andersen</h2>
+    
+    <div class="highlight-text" style="font-size: 1.3rem; margin: 0.8rem 0;">
+        En su concepción original sobre los regímenes de Estado de bienestar, Esping-Andersen propuso el régimen liberal como uno de los tres grandes modelos de Estado de bienestar.
+    </div>
+    
+    <!-- Primeras tres tarjetas -->
+    <div class="slide-2-grid-upper">
+        <div class="card-structured">
+            <div class="card-structured-title">Desmercantilización</div>
+            <div>El grado en que una persona puede vivir dignamente sin depender exclusivamente de vender su fuerza de trabajo en el mercado. <strong>En el modelo liberal la desmercantilización es muy baja</strong>. El sistema estimula que las personas consigan sus ingresos, salud y pensiones a través del mercado de trabajo. El bienestar estatal es de último recurso.</div>
         </div>
+        <div class="card-structured">
+            <div class="card-structured-title">Estratificación social</div>
+            <div>Refiere al impacto que tiene la política pública en las clases sociales y en la igualdad. <strong>En el modelo liberal se fomenta una dualidad de clases</strong>: los sectores de ingresos medios/altos que adquieren seguros privados (pensiones, salud privada) y los sectores vulnerables, supeditados a la beneficencia pública con subsidios bajos.</div>
+        </div>
+        <div class="card-structured">
+            <div class="card-structured-title">Triángulo de bienestar</div>
+            <div>Refiere a la distribución del bienestar entre el Estado, el mercado y la familia. <strong>En el modelo liberal hay una preferencia clara por el mercado</strong>. El Estado solo interviene cuando el mercado o la familia fallan.</div>
+        </div>
+    </div>
 
+    <!-- Título de características principales -->
+    <h3 style="color: var(--primary-color); margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1.4rem;">Características principales</h3>
+    
+    <!-- Siguientes tres tarjetas -->
+    <div class="slide-2-grid-lower">
+        <div class="card-structured">
+            <div class="card-structured-title">Comprobación de medios</div>
+            <div>Los subsidios sociales se dirigen a quienes demuestran estar debajo del umbral de pobreza.</div>
+        </div>
+        <div class="card-structured">
+            <div class="card-structured-title">Defensa de la ética del trabajo</div>
+            <div>Los subsidios se diseñan para ser deliberadamente modestos o bajos, de modo que no desincentiven la búsqueda de empleo.</div>
+        </div>
+        <div class="card-structured">
+            <div class="card-structured-title">Fomento de soluciones privadas</div>
+            <div>El Estado otorga incentivos fiscales o subsidios indirectos para que las empresas e individuos contraten planes privados de salud o planes de pensiones privados.</div>
+        </div>
+    </div>
+</div>
         <!-- Diapositiva 3 -->
         <div class="slide" id="slide-3">
-            <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini][cite: 1]</span>
-            </div>
-            <h2>Diapositiva 3. Críticas y matices al régimen liberal[cite: 1]</h2>
-            <div class="diagram-grid">
-                <div class="card">La inclusión del Reino Unido en este régimen se debió a un error matemático en el índice de desmercantilización (Scruggs y Allan, 2006)[cite: 1]</div>
-                <div class="card">Dentro del mundo angloparlante existen dos modelos: el radical, centrado en la redistribución, y el liberal en términos de Esping-Andersen (Castells y Mitchell, 1993).[cite: 1]</div>
-                <div class="card">Al hacer un análisis de clusters sobre la asistencia social, el grupo angloparlante se divide en tres grupos distintos (Gough, 2001)[cite: 1]</div>
-            </div>
+    <div class="ai-icon-wrapper">
+        <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+        </svg>
+        <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
+    </div>
+    
+    <h2>Críticas y matices al régimen liberal</h2>
+    
+    <div class="diagram-grid">
+        <div class="card-emphasized">
+            La inclusión del Reino Unido en este régimen se debió a un error matemático en el índice de desmercantilización 
+            <span class="citation-text">(Scruggs y Allan, 2006)</span>
         </div>
+        <div class="card-emphasized">
+            Dentro del mundo angloparlante existen dos modelos: el radical, centrado en la redistribución, y el liberal en términos de Esping-Andersen 
+            <span class="citation-text">(Castells y Mitchell, 1993).</span>
+        </div>
+        <div class="card-emphasized">
+            Al hacer un análisis de clusters sobre la asistencia social, el grupo angloparlante se divide en tres grupos distintos 
+            <span class="citation-text">(Gough, 2001)</span>
+        </div>
+    </div>
+</div>
 
         <!-- Diapositiva 4 -->
         <div class="slide" id="slide-4">
-            <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini][cite: 1]</span>
-            </div>
-            <h2>Diapositiva 4. Diferentes perspectivas de análisis[cite: 1]</h2>
-            <div class="highlight-text">No existe una única manera de analizar los Estados de bienestar. La propuesta de Esping-Andersen es un referente. Las similitudes y diferencias entre países dependen de la perspectiva con que se observen.[cite: 1]</div>
-            <div class="highlight-text">Visto desde lejos, se observan solo grandes rasgos; a distancia media, se pueden distinguir regímenes o "familias de naciones"; y con un enfoque de gran acercamiento, cada país aparece como un caso único e incomparable.[cite: 1]</div>
-            
-            <div class="diagram-grid">
-                <div class="card"><strong>Cuidados.</strong> Al analizar los servicios de cuidados, Reino Unido e Irlanda se ubican en una posición intermedia entre el modelo escandinavo y el continental.[cite: 1]</div>
-                <div class="card"><strong>Género.</strong> En Reino Unido e Irlanda, el movimiento feminista fue más fuerte que en el continente a pesar de ser Estados de “proveedor masculino fuerte” (strong male breadwinner). Por su parte, Canadá, Australia y EEUU desarrollaron políticas más avanzadas contra la violencia de género que los países escandinavos.[cite: 1]</div>
-            </div>
+    <div class="ai-icon-wrapper">
+        <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+        </svg>
+        <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
+    </div>
+    
+    <h2>Diferentes perspectivas de análisis</h2>
+    
+    <div class="highlight-text">
+        No existe una única manera de analizar los Estados de bienestar. La propuesta de Esping-Andersen es un referente. Las similitudes y diferencias entre países dependen de la perspectiva con que se observen.
+    </div>
+    
+    <!-- Texto centrado con estilo y color distintivo -->
+    <div class="centered-distinct-text">
+        Visto desde lejos, se observan solo grandes rasgos; a distancia media, se pueden distinguir regímenes o "familias de naciones"; y con un enfoque de gran acercamiento, cada país aparece como un caso único e incomparable.
+    </div>
+    
+    <div class="diagram-grid">
+        <div class="card-with-title">
+            <div class="card-title-highlight">Cuidados</div>
+            <div>Al analizar los servicios de cuidados, Reino Unido e Irlanda se ubican en una posición intermedia entre el modelo escandinavo y el continental.</div>
         </div>
+        <div class="card-with-title">
+            <div class="card-title-highlight">Género</div>
+            <div>En Reino Unido e Irlanda, el movimiento feminista fue más fuerte que en el continente a pesar de ser Estados de “proveedor masculino fuerte” (strong male breadwinner). Por su parte, Canadá, Australia y EEUU desarrollaron políticas más avanzadas contra la violencia de género que los países escandinavos.</div>
+        </div>
+    </div>
+</div>
 
         <!-- Diapositiva 5 -->
         <div class="slide" id="slide-5">
             <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini][cite: 1]</span>
+                <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+                </svg>
+                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
             </div>
-            <h2>Diapositiva 5. Familia de naciones[cite: 1]</h2>
-            <div class="highlight-text">No basta con mirar solo la economía o la lucha de clases. Los países comparten lazos históricos, geográficos, lingüísticos y culturales que hacen que adopten patrones de políticas públicas muy similares entre sí.[cite: 1]</div>
-            <div class="highlight-text">Castles y Pierson introducen la idea de “familia de naciones” basado en la premisa de que los países comparten historia, idioma, cultura, instituciones y experiencias políticas que permiten entender que desarrollen políticas públicas parecidas.[cite: 1]</div>
+            <h2>Familia de naciones</h2>
+            <div class="highlight-text">No basta con mirar solo la economía o la lucha de clases. Los países comparten lazos históricos, geográficos, lingüísticos y culturales que hacen que adopten patrones de políticas públicas muy similares entre sí.</div>
+            <div class="highlight-text">Castles y Pierson introducen la idea de “familia de naciones” basado en la premisa de que los países comparten historia, idioma, cultura, instituciones y experiencias políticas que permiten entender que desarrollen políticas públicas parecidas.</div>
         </div>
 
         <!-- Diapositiva 6 -->
         <div class="slide" id="slide-6">
-            <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini][cite: 1]</span>
-            </div>
-            <h2>Diapositiva 6. Comparación entre regímenes de Estados de bienestar y familias de naciones[cite: 1]</h2>
-            <div class="highlight-text">Mientras que el concepto de régimen de bienestar se concentra principalmente en la estructura institucional y política del bienestar, la idea de familia de naciones busca explicar por qué ciertos países terminan agrupándose debido a características históricas y culturales compartidas.[cite: 1]</div>
-        </div>
+    <div class="ai-icon-wrapper">
+        <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+        </svg>
+        <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
+    </div>
+    
+    <h2>Comparación entre regímenes de Estados de bienestar y familias de naciones</h2>
+    
+    <!-- Tabla comparativa integrada -->
+    <div class="table-container">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Esping-Andersen: Regímenes de bienestar</th>
+                    <th>Castles y Pierson: Familia de naciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Pregunta principal</strong></td>
+                    <td>¿Cómo está organizado el Estado de bienestar?</td>
+                    <td>¿Por qué ciertos países desarrollan políticas e instituciones parecidas?</td>
+                </tr>
+                <tr>
+                    <td><strong>Principal enfoque</strong></td>
+                    <td>Institucional y político</td>
+                    <td>Histórico, cultural y territorial</td>
+                </tr>
+                <tr>
+                    <td><strong>¿Qué analiza?</strong></td>
+                    <td>Relación entre Estado, mercado y familia</td>
+                    <td>Los elementos históricos, culturales, lingüísticos y geográficos compartidos</td>
+                </tr>
+                <tr>
+                    <td><strong>Conceptos importantes</strong></td>
+                    <td>Desmercantilización</td>
+                    <td>Historia compartida</td>
+                </tr>
+                <tr>
+                    <td><strong>Clasificación</strong></td>
+                    <td>Liberal, conservador y socialdemócrata</td>
+                    <td>Agrupa países que comparten una determinada tradición nacional o histórica</td>
+                </tr>
+                <tr>
+                    <td><strong>Papel del mercado</strong></td>
+                    <td>Es fundamental para diferenciar los regímenes. En el régimen liberal tiene un papel especialmente importante</td>
+                    <td>Se observa como parte de los patrones comunes entre países, pero no es el único elemento</td>
+                </tr>
+                <tr>
+                    <td><strong>Papel del Estado</strong></td>
+                    <td>Analiza qué tan amplio es el Estado de bienestar y cómo proporciona protección social</td>
+                    <td>Analiza cómo las tradiciones nacionales pueden influir en las políticas que desarrolla el Estado</td>
+                </tr>
+                <tr>
+                    <td><strong>Ejemplo</strong></td>
+                    <td>Estados Unidos suele asociarse con el régimen liberal</td>
+                    <td>Estados Unidos, Reino Unido, Canadá, Australia, Nueva Zelanda e Irlanda pueden analizarse como una familia de países de habla inglesa</td>
+                </tr>
+                <tr>
+                    <td><strong>¿Todos los países del grupo son iguales?</strong></td>
+                    <td>No. Un mismo régimen puede presentar diferencias entre países</td>
+                    <td>No. Compartir una familia no significa tener las mismas instituciones o políticas.</td>
+                </tr>
+                <tr>
+                    <td><strong>Objetivo</strong></td>
+                    <td>Identificar tipos de Estados de bienestar</td>
+                    <td>Explicar similitudes y diferencias entre países a partir de su trayectoria histórica y cultural</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
         <!-- Diapositiva 7 -->
         <div class="slide" id="slide-7">
             <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini][cite: 1]</span>
+                <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+                </svg>
+                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
             </div>
-            <h2>Diapositiva 7. English awfulness reconsidered[cite: 1]</h2>
-            <div class="highlight-text">La tesis de la “deficiencia” en la política social de los países angloparlantes solo se sostiene cuando únicamente se mide el volumen bruto de gasto público y transferencias.[cite: 1]</div>
-            <div class="highlight-text">Existen otros instrumentos para combatir la desigualdad[cite: 1]</div>
+            <h2>English awfulness reconsidered</h2>
+            <div class="highlight-text">La tesis de la “deficiencia” en la política social de los países angloparlantes solo se sostiene cuando únicamente se mide el volumen bruto de gasto público y transferencias.</div>
+            <div class="highlight-text">Existen otros instrumentos para combatir la desigualdad</div>
             
             <div class="diagram-grid">
-                <div class="card">La estrategia de los países angloparlantes se ha basado en la progresividad fiscal, la focalización de beneficios (means-testing) y medidas directas en el mercado laboral.[cite: 1]</div>
-                <div class="card">Por ejemplo, en Australia y Nueva Zelanda los tribunales de arbitraje jugaron un papel importante fijando un salario digno o vital obligatorio para cubrir las necesidades del trabajador y su familia, reduciendo la necesidad inicial de transferencias estatales.[cite: 1]</div>
-                <div class="card">El desmantelamiento del sistema de arbitraje durante la era neoliberal se asocia con un aumento en la desigualdad en estos países.[cite: 1]</div>
+                <div class="card-emphasized">
+                    La estrategia de los países angloparlantes se ha basado en la progresividad fiscal, la focalización de beneficios (means-testing) y medidas directas en el mercado laboral.
+                </div>
+                <div class="card-emphasized">
+                    Por ejemplo, en Australia y Nueva Zelanda los tribunales de arbitraje jugaron un papel importante fijando un salario digno o vital obligatorio para cubrir las necesidades del trabajador y su familia, reduciendo la necesidad inicial de transferencias estatales.
+                </div>
+                <div class="card-emphasized">
+                    El desmantelamiento del sistema de arbitraje durante la era neoliberal se asocia con un aumento en la desigualdad en estos países.
+                </div>
             </div>
         </div>
+
+<div class="slide" id="slide-anz">
+    <div class="ai-icon-wrapper">
+        <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+        </svg>
+        <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
+    </div>
+    
+    <h2>Los casos de Australia y Nueva Zelanda</h2>
+    
+    <!-- Texto destacado 1 -->
+    <div class="highlight-text" style="font-size: 1.25rem; margin: 0.8rem 0; border-left-color: var(--primary-color);">
+        ¿Cuál es el problema que intenta resolver un Estado de bienestar?
+    </div>
+    
+    <!-- Tarjetas 1 y 2 -->
+    <div class="anz-cards-container">
+        <div class="anz-card">
+            <div class="anz-card-title">Opción A</div>
+            <div>"Te doy una prestación social para complementar tus ingresos." <strong>Transferencias sociales</strong></div>
+        </div>
+        <div class="anz-card">
+            <div class="anz-card-title">Opción B</div>
+            <div>"Intento que tu salario sea suficientemente alto desde el principio." <strong>Mercado laboral</strong></div>
+        </div>
+    </div>
+
+    <!-- Diagrama 1 -->
+    <div class="anz-diagram-box">
+        “wage-earners’ welfare state” = Estado de bienestar basado en los trabajadores asalariados.<br>
+        ↓<br>
+        Regulación salarial → mejores ingresos laborales → menor necesidad de transferencias sociales<br>
+        ↓<br>
+        Parte de la protección social se conseguía a través del salario.<br>
+        ↓<br>
+        Modelo liberal: “El Estado gasta poco y deja que el mercado proporcione buena parte del bienestar.”
+    </div>
+
+    <!-- Texto destacado 2 -->
+    <div class="highlight-text" style="font-size: 1.2rem; margin: 0.8rem 0; border-left-color: #e74c3c; background-color: #fdf4f4;">
+        Castles y Pierson dicen que no todos los países de habla inglesa deben entenderse exactamente de la misma manera.
+    </div>
+
+    <!-- Imagen -->
+    <div class="anz-image-container">
+        <img src="gini_australia.png" alt="Índice de Gini Australia y Nueva Zelanda" style="width: 100%; height: 100%; object-fit: contain; border-radius: 6px;">
+    </div>
+</div>
 
         <!-- Diapositiva 8 -->
         <div class="slide" id="slide-8">
             <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini][cite: 1]</span>
+                <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+                </svg>
+                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
             </div>
-            <h2>Diapositiva 8. Alta progresividad y la paradoja redistributiva[cite: 1]</h2>
-            <div class="highlight-text">Los países angloparlantes concentran sus prestaciones en quienes más lo necesitan y aplican impuestos a la renta altamente progresivos.[cite: 1]</div>
+            <h2>Alta progresividad y la paradoja redistributiva</h2>
+            <div class="highlight-text">Los países angloparlantes concentran sus prestaciones en quienes más lo necesitan y aplican impuestos a la renta altamente progresivos.</div>
             
             <div class="diagram-grid">
-                <div class="card">El sistema fiscal de EEUU es el más progresivo de la OCDE debido al crédito fiscal por ingreso del trabajo (EITC).[cite: 1]</div>
-                <div class="card">La capacidad efectiva del sistema fiscal y de transferencias de reducir la desigualdad en Australia o Irlanda es comparable con la de Suecia o Dinamarca, y la de Reino Unido es similar a la de Alemania.[cite: 1]</div>
-                <div class="card">Las mayores tasas de desigualdad en estos países se asocian con la elevada desigualdad que genera la desregulación de su mercado laboral.[cite: 1]</div>
+                <div class="card-emphasized">
+                    El sistema fiscal de EEUU es el más progresivo de la OCDE debido al crédito fiscal por ingreso del trabajo (EITC).
+                </div>
+                <div class="card-emphasized">
+                    La capacidad efectiva del sistema fiscal y de transferencias de reducir la desigualdad en Australia o Irlanda es comparable con la de Suecia o Dinamarca, y la de Reino Unido es similar a la de Alemania.
+                </div>
+                <div class="card-emphasized">
+                    Las mayores tasas de desigualdad en estos países se asocian con la elevada desigualdad que genera la desregulación de su mercado laboral.
+                </div>
             </div>
         </div>
 
         <!-- Diapositiva 9 -->
-        <div class="slide" id="slide-9">
-            <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini][cite: 1]</span>
+<div class="slide" id="slide-9">
+    <div class="ai-icon-wrapper">
+        <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+        </svg>
+        <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
+    </div>
+    
+    <h2>El caso de EEUU</h2>
+    
+    <div>
+        <div style="font-size: 1.25rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.5rem;">
+            En comparación con los países de la OCDE, EEUU presenta:
+        </div>
+        <div class="ocde-full-container">
+            <div class="ocde-card-full">Gasto público social bruto más bajo</div>
+            <div class="ocde-card-full">Niveles más altos de desigualdad de ingresos</div>
+            <div class="ocde-card-full">Menor carga fiscal sobre beneficios</div>
+            <div class="ocde-card-full">Nivel más alto de gasto social privado</div>
+        </div>
+    </div>
+
+    <h3 style="color: var(--primary-color); margin-top: 1.5rem; margin-bottom: 0.8rem; font-size: 1.5rem;">Algunos matices</h3>
+    
+    <!-- Panel con pestañas superiores -->
+    <div class="tabs-container">
+        <div class="tabs-header">
+            <button class="tab-btn active" onclick="switchTab('desigualdad', this)">Desigualdad</button>
+            <button class="tab-btn" onclick="switchTab('gasto', this)">Gasto social privado</button>
+            <button class="tab-btn" onclick="switchTab('neto', this)">Gasto neto social</button>
+        </div>
+
+        <!-- Pestaña 1: Desigualdad con imagen local 'gini.png' -->
+        <div id="tab-desigualdad" class="tab-content active">
+            <div class="tab-text-pane">
+                Portugal registra mayor desigualdad, medida por el índice de Gini, que EEUU.
             </div>
-            <h2>Diapositiva 9. El caso de EEUU[cite: 1]</h2>
-            <div class="highlight-text">Generalmente, EEUU se considera un caso excepcional dentro del mundo angloparlante[cite: 1]</div>
-            
-            <div class="diagram-grid">
-                <div class="card" style="border-top-color: #e74c3c;">
-                    <strong>¿Por qué se considera un caso excepcional? En comparación con los países de la OCDE[cite: 1]</strong>
-                    <ul style="padding-left: 1.2rem; margin-top: 10px;">
-                        <li>Gasto público social bruto más bajo[cite: 1]</li>
-                        <li>Niveles más altos de desigualdad de ingresos[cite: 1]</li>
-                        <li>Menor carga fiscal sobre beneficios[cite: 1]</li>
-                        <li>Nivel más alto de gasto social privado[cite: 1]</li>
-                    </ul>
-                </div>
-                <div class="card" style="border-top-color: #f39c12;">
-                    <strong>Algunos matices[cite: 1]</strong>
-                    <ul style="padding-left: 1.2rem; margin-top: 10px;">
-                        <li>Portugal registra mayor desigualdad, medida por el índice de Gini, que EEUU[cite: 1]</li>
-                        <li>Países Bajos es el segundo país con mayor gasto social privado[cite: 1]</li>
-                        <li>Alemania y EEUU comparten niveles elevados de pobreza infantil[cite: 1]</li>
-                        <li>Al medir el gasto social neto total, EEUU se ubica en el sexto lugar más alto de la OCDE[cite: 1]</li>
-                    </ul>
+            <div class="tab-chart-pane" style="background: #fff; display: flex; justify-content: center; align-items: center; height: 100%; padding: 0.5rem;">
+                <img src="gini.png" alt="Índice de Gini" style="width: 100%; height: 100%; object-fit: contain; border-radius: 6px;">
+            </div>
+        </div>
+
+        <!-- Pestaña 2: Gasto social privado con imagen local 'private_socialspending.png' -->
+        <div id="tab-gasto" class="tab-content">
+            <div class="tab-text-pane">
+                Países Bajos es el segundo país con mayor gasto social privado.
+            </div>
+            <div class="tab-chart-pane" style="background: #fff; display: flex; justify-content: center; align-items: center; height: 100%; padding: 0.5rem;">
+                <img src="private_socialspending.png" alt="Gasto social privado" style="width: 100%; height: 100%; object-fit: contain; border-radius: 6px;">
+            </div>
+        </div>
+
+        <!-- Pestaña 3: Pobreza infantil (mantiene la simulación o se adapta si tienes imagen) -->
+        <div id="tab-pobreza" class="tab-content">
+            <div class="tab-text-pane">
+                Alemania y EEUU comparten niveles elevados de pobreza infantil.
+            </div>
+            <div class="tab-chart-pane">
+                <div class="chart-bar-container">
+                    <div class="chart-bar-row">
+                        <span class="chart-bar-label">EEUU</span>
+                        <div class="chart-bar-track"><div class="chart-bar-fill highlight" style="width: 80%;"></div></div>
+                        <span class="chart-bar-value">18.5%</span>
+                    </div>
+                    <div class="chart-bar-row">
+                        <span class="chart-bar-label">Alemania</span>
+                        <div class="chart-bar-track"><div class="chart-bar-fill highlight" style="width: 75%;"></div></div>
+                        <span class="chart-bar-value">16.8%</span>
+                    </div>
+                    <div class="chart-bar-row">
+                        <span class="chart-bar-label">Promedio OCDE</span>
+                        <div class="chart-bar-track"><div class="chart-bar-fill" style="width: 55%; background-color: #94a3b8;"></div></div>
+                        <span class="chart-bar-value">12.0%</span>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Pestaña 4: Gasto neto social con imagen local 'net_socialspending.png' -->
+        <div id="tab-neto" class="tab-content">
+            <div class="tab-text-pane">
+                Al medir el gasto social neto total, EEUU se ubica en el sexto lugar más alto de la OCDE.
+            </div>
+            <div class="tab-chart-pane" style="background: #fff; display: flex; justify-content: center; align-items: center; height: 100%; padding: 0.5rem;">
+                <img src="net_socialspending.png" alt="Gasto neto social" style="width: 100%; height: 100%; object-fit: contain; border-radius: 6px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchTab(tabId, buttonElement) {
+        const contents = document.querySelectorAll('#slide-9 .tab-content');
+        contents.forEach(content => content.classList.remove('active'));
+
+        const buttons = document.querySelectorAll('#slide-9 .tab-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        document.getElementById('tab-' + tabId).classList.add('active');
+        buttonElement.classList.add('active');
+    }
+</script>
 
         <!-- Diapositiva 10 -->
         <div class="slide" id="slide-10">
             <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini][cite: 1]</span>
+                <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+                </svg>
+                <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
             </div>
-            <h2>Diapositiva 10. Respuestas a la crisis financiera de 2008[cite: 1]</h2>
-            <div class="highlight-text">La recesión de 2008 provocó mayor necesidad de mecanismos y políticas que vieran por el bienestar social, a la par que los países se enfrentaban a menores ingresos fiscales.[cite: 1]</div>
-            <div class="highlight-text">No en todos los países hubo un recorte automático en el presupuesto social[cite: 1]</div>
+            <h2>Respuestas a la crisis financiera de 2008</h2>
+            <div class="highlight-text">La recesión de 2008 provocó mayor necesidad de mecanismos y políticas que vieran por el bienestar social, a la par que los países se enfrentaban a menores ingresos fiscales.</div>
+            <div class="highlight-text">No en todos los países hubo un recorte automático en el presupuesto social</div>
             
-            <h3 style="color: var(--primary-color);">Respuestas nacionales[cite: 1]</h3>
+            <h3 style="color: var(--primary-color);">Respuestas nacionales</h3>
             <div class="diagram-grid">
-                <div class="card">EEUU implementó en 2010 el Obamacare (Patient Protection and Affordable Care Act) lo que significó un cambio significativo en su sistema de salud.[cite: 1]</div>
-                <div class="card">Reino Unido implementó severos recortes, endureció la condicionalidad laboral y observó un incremento en la pobreza infantil.[cite: 1]</div>
-                <div class="card">Nueva Zelanda, Australia y Canadá enfocaron sus reformas en reducir la dependencia de los subsidios e imponer como condición la búsqueda de empleo[cite: 1]</div>
+                <div class="card-emphasized">
+                    EEUU implementó en 2010 el Obamacare (Patient Protection and Affordable Care Act) lo que significó un cambio significativo en su sistema de salud.
+                </div>
+                <div class="card-emphasized">
+                    Reino Unido implementó severos recortes, endureció la condicionalidad laboral y observó un incremento en la pobreza infantil.
+                </div>
+                <div class="card-emphasized">
+                    Nueva Zelanda, Australia y Canadá enfocaron sus reformas en reducir la dependencia de los subsidios e imponer como condición la búsqueda de empleo
+                </div>
             </div>
         </div>
 
         <!-- Diapositiva 11 -->
-        <div class="slide" id="slide-11">
-            <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Búsqueda de fuentes y resumen de información con Gemini Notebook; Diseño de lámina con Gemini][cite: 1]</span>
+<div class="slide" id="slide-11">
+    <div class="ai-icon-wrapper">
+        <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+        </svg>
+        <span class="ai-tooltip">[Uso de IA: Búsqueda de fuentes y resumen de información con Gemini Notebook; Diseño de lámina con Gemini]</span>
+    </div>
+    
+    <h2>Respuestas a la pandemia de Covid 2020</h2>
+    <div class="highlight-text" style="margin: 0.5rem 0 1.5rem 0; font-size: 1.3rem;">
+        Durante la pandemia de COVID-19, los países angloparlantes implementaron mecanismos de retención del empleo (wage subsidies) y esquemas de ingreso de emergencia para desempleados y trabajadores independientes. Selecciona un país para ver las medidas específicas:
+    </div>
+    
+    <div class="slide-11-container">
+        <!-- Panel Izquierdo: Botones de Países sin banderas -->
+        <div class="countries-panel">
+            <button class="country-btn active" onclick="showCountryInfo('uk', this)">
+                Reino Unido
+            </button>
+            <button class="country-btn" onclick="showCountryInfo('australia', this)">
+                Australia
+            </button>
+            <button class="country-btn" onclick="showCountryInfo('canada', this)">
+                Canadá
+            </button>
+            <button class="country-btn" onclick="showCountryInfo('usa', this)">
+                Estados Unidos
+            </button>
+        </div>
+
+        <!-- Panel Derecho: Información Desplegada sin títulos de país -->
+        <div class="info-display-panel">
+            <!-- Reino Unido -->
+            <div id="info-uk" class="info-content active">
+                <ul>
+                    <li><strong>Coronavirus Job Retention Scheme (CJRS / furlough):</strong> El Estado reembolsó el 80% de los salarios brutos de los trabajadores suspendidos (hasta un tope de £2,500 mensuales) para mantener el vínculo laboral con sus empresas.</li>
+                    <li><strong>Universal Credit (UC):</strong> Se incrementó temporalmente el pago estándar del beneficio por desempleo en £20 semanales (£94/semana), se ajustó la ayuda para vivienda (Local Housing Allowance) y se congelaron los requisitos de búsqueda activa de empleo y sanciones (work-first).</li>
+                    <li><strong>Self-Employment Income Support Scheme (SEISS):</strong> Cobertura salarial de entre el 70% y 80% para trabajadores autónomos e independientes.</li>
+                </ul>
             </div>
-            <h2>Diapositiva 11. Respuestas a la pandemia de Covid 2020[cite: 1]</h2>
-            <div class="highlight-text">Durante la pandemia de COVID-19, los países angloparlantes implementaron mecanismos de retención del empleo (wage subsidies) y esquemas de ingreso de emergencia para desempleados y trabajadores independientes.[cite: 1]</div>
-            
-            <div class="diagram-grid" style="font-size: 0.95rem;">
-                <div class="card">
-                    <strong>Reino Unido:[cite: 1]</strong>
-                    <ul style="padding-left: 1rem; margin-top: 5px;">
-                        <li>Coronavirus Job Retention Scheme (CJRS / furlough): El Estado reembolsó el 80% de los salarios brutos de los trabajadores suspendidos (hasta un tope de £2,500 mensuales) para mantener el vínculo laboral con sus empresas.[cite: 1]</li>
-                        <li>Universal Credit (UC): Se incrementó temporalmente el pago estándar del beneficio por desempleo en £20 semanales (£94/semana), se ajustó la ayuda para vivienda (Local Housing Allowance) y se congelaron los requisitos de búsqueda activa de empleo y sanciones (work-first).[cite: 1]</li>
-                        <li>Self-Employment Income Support Scheme (SEISS): Cobertura salarial de entre el 70% y 80% para trabajadores autónomos e independientes.[cite: 1]</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <strong>Australia:[cite: 1]</strong>
-                    <ul style="padding-left: 1rem; margin-top: 5px;">
-                        <li>JobKeeper: Un subsidio salarial pagado a través de los empleadores para preservar los puestos de trabajo en empresas con pérdidas de facturación.[cite: 1]</li>
-                        <li>JobSeeker (COVID Supplement): Se duplicó temporalmente la prestación por desempleo mediante el pago de un suplemento de emergencia.[cite: 1]</li>
-                        <li>Servicios básicos: Se brindó temporalmente cuidado infantil gratuito y se financiaron alojamientos de emergencia para personas sin hogar.[cite: 1]</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <strong>Canadá:[cite: 1]</strong>
-                    <ul style="padding-left: 1rem; margin-top: 5px;">
-                        <li>Canada Emergency Response Benefit (CERB): Un subsidio directo de $2,000 CAD mensuales dirigido a cualquier persona mayor de 15 años que hubiera perdido ingresos por la pandemia.[cite: 1]</li>
-                        <li>Flexibilización de requisitos: Reemplazó temporalmente las restricciones del seguro de desempleo tradicional (Employment Insurance), alcanzando a trabajadores temporales, estudiantes y autónomos.[cite: 1]</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <strong>Estados Unidos:[cite: 1]</strong>
-                    <ul style="padding-left: 1rem; margin-top: 5px;">
-                        <li>Pagos directos de estímulo (Stimulus checks): Transferencias monetarias directas a la gran mayoría de hogares y residentes.[cite: 1]</li>
-                        <li>CARES Act / Seguro de desempleo ampliado: Se añadió un suplemento de $600 dólares semanales a los beneficios estatales de desempleo y se extendió la protección a gig workers (trabajadores independientes que realizan tareas a corto plazo, proyectos o servicios bajo demanda), autónomos y contratistas independientes.[cite: 1]</li>
-                        <li>Programas de nómina y moratorias: Apoyo a pequeñas empresas (Paycheck Protection Program) y moratorias federales sobre ejecuciones hipotecarias y desalojos.[cite: 1]</li>
-                    </ul>
-                </div>
+
+            <!-- Australia -->
+            <div id="info-australia" class="info-content">
+                <ul>
+                    <li><strong>JobKeeper:</strong> Un subsidio salarial pagado a través de los empleadores para preservar los puestos de trabajo en empresas con pérdidas de facturación.</li>
+                    <li><strong>JobSeeker (COVID Supplement):</strong> Se duplicó temporalmente la prestación por desempleo mediante el pago de un suplemento de emergencia.</li>
+                    <li><strong>Servicios básicos:</strong> Se brindó temporalmente cuidado infantil gratuito y se financiaron alojamientos de emergencia para personas sin hogar.</li>
+                </ul>
+            </div>
+
+            <!-- Canadá -->
+            <div id="info-canada" class="info-content">
+                <ul>
+                    <li><strong>Canada Emergency Response Benefit (CERB):</strong> Un subsidio directo de $2,000 CAD mensuales dirigido a cualquier persona mayor de 15 años que hubiera perdido ingresos por la pandemia.</li>
+                    <li><strong>Flexibilización de requisitos:</strong> Reemplazó temporalmente las restricciones del seguro de desempleo tradicional (Employment Insurance), alcanzando a trabajadores temporales, estudiantes y autónomos.</li>
+                </ul>
+            </div>
+
+            <!-- Estados Unidos -->
+            <div id="info-usa" class="info-content">
+                <ul>
+                    <li><strong>Pagos directos de estímulo (Stimulus checks):</strong> Transferencias monetarias directas a la gran mayoría de hogares y residentes.</li>
+                    <li><strong>CARES Act / Seguro de desempleo ampliado:</strong> Se añadió un suplemento de $600 dólares semanales a los beneficios estatales de desempleo y se extendió la protección a gig workers (trabajadores independientes que realizan tareas a corto plazo, proyectos o servicios bajo demanda), autónomos y contratistas independientes.</li>
+                    <li><strong>Programas de nómina y moratorias:</strong> Apoyo a pequeñas empresas (Paycheck Protection Program) y moratorias federales sobre ejecuciones hipotecarias y desalojos.</li>
+                </ul>
             </div>
         </div>
+    </div>
+</div>
+
+<script>
+    // Función de control interactivo para la Diapositiva 11
+    function showCountryInfo(countryId, buttonElement) {
+        // Ocultar todos los contenidos
+        const contents = document.querySelectorAll('#slide-11 .info-content');
+        contents.forEach(content => content.classList.remove('active'));
+
+        // Remover la clase active de todos los botones
+        const buttons = document.querySelectorAll('#slide-11 .country-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // Mostrar el contenido seleccionado y activar el botón
+        document.getElementById('info-' + countryId).classList.add('active');
+        buttonElement.classList.add('active');
+    }
+</script>
 
         <!-- Diapositiva 12 -->
         <div class="slide" id="slide-12">
             <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Búsqueda de fuentes y resumen de información con Gemini Notebook; Diseño de lámina con Gemini][cite: 1]</span>
+                <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+                </svg>
+                <span class="ai-tooltip">[Uso de IA: Búsqueda de fuentes y resumen de información con Gemini Notebook; Diseño de lámina con Gemini]</span>
             </div>
-            <h2>Diapositiva 12. ¿Cambios en el régimen de bienestar?[cite: 1]</h2>
-            <div class="highlight-text">Recordemos que en la clasificación de Esping-Andersen, el régimen liberal se caracteriza por:[cite: 1]</div>
+            <h2>¿Cambios en el régimen de bienestar?</h2>
+            <div class="highlight-text">Recordemos que en la clasificación de Esping-Andersen, el régimen liberal se caracteriza por:</div>
             
             <div class="diagram-grid" style="margin-bottom: 2rem;">
-                <div class="card">Una baja desmercantilización (beneficios monetarios bajos, de cuota fija o residuales).[cite: 1]</div>
-                <div class="card">Una alta focalización (means-testing) dirigida únicamente a los más pobres, generando estigmatización social.[cite: 1]</div>
-                <div class="card">Un enfoque de activación (work-first) para forzar a las personas a aceptar empleos en el mercado, manteniendo la primacía de la oferta y la demanda sin mayor intervención estatal.[cite: 1]</div>
+                <div class="card">Una baja desmercantilización (beneficios monetarios bajos, de cuota fija o residuales).</div>
+                <div class="card">Una alta focalización (means-testing) dirigida únicamente a los más pobres, generando estigmatización social.</div>
+                <div class="card">Un enfoque de activación (work-first) para forzar a las personas a aceptar empleos en el mercado, manteniendo la primacía de la oferta y la demanda sin mayor intervención estatal.</div>
             </div>
 
-            <div class="highlight-text">Las intervenciones durante la pandemia modificaron algunas de estas premisas, marcando diferencias respecto a la concepción tradicional:[cite: 1]</div>
+            <div class="highlight-text">Las intervenciones durante la pandemia modificaron algunas de estas premisas, marcando diferencias respecto a la concepción tradicional:</div>
             
             <div class="diagram-grid" style="font-size: 0.95rem;">
                 <div class="card">
-                    <strong>Mayor desmercantilización[cite: 1]</strong>
+                    <strong>Mayor desmercantilización</strong>
                     <ul style="padding-left: 1rem; margin-top: 5px;">
-                        <li>La tasa de reemplazo es una de las variables utilizadas por la literatura posterior a Esping-Andersen para calcular y operacionalizar la desmercantilización.[cite: 1]</li>
-                        <li>La tasa de reemplazo (replacement rate) mide el porcentaje del salario habitual que una prestación pública reemplaza cuando el trabajador pierde sus ingresos por algún riesgo social, por ejemplo: desempleo, enfermedad, maternidad o jubilación.[cite: 1]</li>
-                        <li>En el modelo clásico, las prestaciones son intencionalmente reducidas para no desincentivar la búsqueda de empleo.[cite: 1]</li>
-                        <li>Durante la pandemia, países como el Reino Unido, Canadá y EE. UU. garantizaron tasas de reemplazo salarial del 70% al 80% e incluso superiores al 100% previo en los sectores de salarios más bajos.[cite: 1]</li>
+                        <li>La tasa de reemplazo es una de las variables utilizadas por la literatura posterior a Esping-Andersen para calcular y operacionalizar la desmercantilización.</li>
+                        <li>La tasa de reemplazo (replacement rate) mide el porcentaje del salario habitual que una prestación pública reemplaza cuando el trabajador pierde sus ingresos por algún riesgo social, por ejemplo: desempleo, enfermedad, maternidad o jubilación.</li>
+                        <li>En el modelo clásico, las prestaciones son intencionalmente reducidas para no desincentivar la búsqueda de empleo.</li>
+                        <li>Durante la pandemia, países como el Reino Unido, Canadá y EE. UU. garantizaron tasas de reemplazo salarial del 70% al 80% e incluso superiores al 100% previo en los sectores de salarios más bajos.</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <strong>Ruptura de la focalización (means-testing)[cite: 1]</strong>
+                    <strong>Ruptura de la focalización (means-testing)</strong>
                     <ul style="padding-left: 1rem; margin-top: 5px;">
-                        <li>El régimen liberal tradicional condiciona el acceso a beneficios mediante comprobaciones de ingresos.[cite: 1]</li>
-                        <li>Programas como el CERB en Canadá y los cheques de estímulo en EE. UU. prescindieron de las pruebas de medios y de los registros históricos de cotización.[cite: 1]</li>
-                        <li>La ayuda se expandió hacia las clases medias y trabajadores atípicos (gig workers, autónomos, contratistas), diluyendo la dualidad tradicional entre "quienes pagan impuestos" y "quienes reciben asistencia".[cite: 1]</li>
+                        <li>El régimen liberal tradicional condiciona el acceso a beneficios mediante comprobaciones de ingresos.</li>
+                        <li>Programas como el CERB en Canadá y los cheques de estímulo en EE. UU. prescindieron de las pruebas de medios y de los registros históricos de cotización.</li>
+                        <li>La ayuda se expandió hacia las clases medias y trabajadores atípicos (gig workers, autónomos, contratistas), diluyendo la dualidad tradicional entre "quienes pagan impuestos" y "quienes reciben asistencia".</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <strong>Suspensión de la condicionalidad y Retención del empleo[cite: 1]</strong>
+                    <strong>Suspensión de la condicionalidad y Retención del empleo</strong>
                     <ul style="padding-left: 1rem; margin-top: 5px;">
-                        <li>Normalmente, el régimen liberal exige una búsqueda activa de empleo bajo amenaza de sanciones o pérdida del beneficio. Durante la pandemia, los gobiernos suspendieron la condicionalidad laboral y retiraron las exigencias de welfare-to-work.[cite: 1]</li>
-                        <li>Típicamente, los mercados laborales de corte liberal responden a las crisis mediante mecanismos de ajuste de mercado como despidos rápidos y ajuste salarial. En 2020, gobiernos como el Reino Unido y Australia asumieron un papel de "empleadores de última instancia", cubriendo el costo salarial de las empresas privadas mediante esquemas de retención de empleo (furlough / JobKeeper) para evitar despidos.[cite: 1]</li>
+                        <li>Normalmente, el régimen liberal exige una búsqueda activa de empleo bajo amenaza de sanciones o pérdida del beneficio. Durante la pandemia, los gobiernos suspendieron la condicionalidad laboral y retiraron las exigencias de welfare-to-work.</li>
+                        <li>Típicamente, los mercados laborales de corte liberal responden a las crisis mediante mecanismos de ajuste de mercado como despidos rápidos y ajuste salarial. En 2020, gobiernos como el Reino Unido y Australia asumieron un papel de "empleadores de última instancia", cubriendo el costo salarial de las empresas privadas mediante esquemas de retención de empleo (furlough / JobKeeper) para evitar despidos.</li>
                     </ul>
                 </div>
             </div>
@@ -467,20 +1470,83 @@
         <!-- Diapositiva 13 -->
         <div class="slide" id="slide-13">
             <div class="ai-icon-wrapper">
-                <svg class="ai-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm-1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
-                <span class="ai-tooltip">[Uso de IA: Búsqueda de fuentes y resumen de información con Gemini Notebook; Diseño de lámina con Gemini][cite: 1]</span>
+                <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+                </svg>
+                <span class="ai-tooltip">[Uso de IA: Búsqueda de fuentes y resumen de información con Gemini Notebook; Diseño de lámina con Gemini]</span>
             </div>
-            <h2>Diapositiva 13. El Estado de bienestar temporal[cite: 1]</h2>
-            <div class="highlight-text">A pesar de que las medidas descritas indican un cambio de régimen liberal a algo similar al modelo socialdemócrata, la literatura destaca que no se trata de un cambio de paradigma sino de una política para los mercados o de emergencia:[cite: 1]</div>
+            <h2>El Estado de bienestar temporal</h2>
+            <div class="highlight-text">A pesar de que las medidas descritas indican un cambio de régimen liberal a algo similar al modelo socialdemócrata, la literatura destaca que no se trata de un cambio de paradigma sino de una política para los mercados o de emergencia:</div>
             
             <div class="diagram-grid">
-                <div class="card"><strong>Diseño explícito con cláusulas de caducidad:</strong> Las transferencias y subsidios se concibieron desde el inicio como medidas destinadas a caducar una vez reabierta la economía.[cite: 1]</div>
-                <div class="card"><strong>Protección de la liquidez macroeconómica:</strong> Más que un compromiso con la redistribución a largo plazo, el gasto público a través de estas medidas buscó proteger el sistema de crédito y evitar el impago de alquileres e hipotecas por parte de las familias.[cite: 1]</div>
-                <div class="card"><strong>Retorno al status quo:</strong> Una vez superada la fase aguda de la crisis sanitaria, la mayoría de los países anglosajones desmontaron los beneficios extraordinarios, reinstauraron las reglas de condicionalidad laboral y reorientaron el debate hacia la austeridad fiscal y la reducción de la deuda pública.[cite: 1]</div>
+                <div class="card"><strong>Diseño explícito con cláusulas de caducidad:</strong> Las transferencias y subsidios se concibieron desde el inicio como medidas destinadas a caducar una vez reabierta la economía.</div>
+                <div class="card"><strong>Protección de la liquidez macroeconómica:</strong> Más que un compromiso con la redistribución a largo plazo, el gasto público a través de estas medidas buscó proteger el sistema de crédito y evitar el impago de alquileres e hipotecas por parte de las familias.</div>
+                <div class="card"><strong>Retorno al status quo:</strong> Una vez superada la fase aguda de la crisis sanitaria, la mayoría de los países anglosajones desmontaron los beneficios extraordinarios, reinstauraron las reglas de condicionalidad laboral y reorientaron el debate hacia la austeridad fiscal y la reducción de la deuda pública.</div>
             </div>
         </div>
 
     </div>
+
+<!-- Diapositiva: Bibliografía y Fuentes consultadas -->
+<div class="slide" id="slide-bibliography">
+    <div class="ai-icon-wrapper">
+        <svg class="ai-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22C12 22 12 16.5 17.5 16.5C12 16.5 12 11 12 11C12 11 12 16.5 6.5 16.5C12 16.5 12 22 12 22ZM19 11C19 11 19 8 22 8C19 8 19 5 19 5C19 5 19 8 16 8C19 8 19 11 19 11Z"/>
+        </svg>
+        <span class="ai-tooltip">[Uso de IA: Diseño de lámina con Gemini]</span>
+    </div>
+    
+    <h2>Referencias</h2>
+    
+    <div class="bibliography-container">
+        <!-- Columna 1: Bibliografía Principal -->
+        <div class="bibliography-column">
+            <h3 class="bibliography-title">Bibliografía</h3>
+            <ul class="bibliography-list">
+                <li class="bibliography-item">
+                    Castles, F. G., & Pierson, C. (2021). The english-speaking countries. En D. Béland, S. Leibfried, K. J. Morgan, H. Obinger, & C. Pierson (Eds.), <em>The Oxford Handbook of the Welfare State</em> (2.a ed., pp. 863-880). Oxford University Press.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Columna 2: Fuentes consultadas para investigación COVID -->
+        <div class="bibliography-column">
+            <h3 class="bibliography-title">Fuentes consultadas para investigación COVID</h3>
+            <ul class="bibliography-list">
+                <li class="bibliography-item">
+                    Dai, J. (2026). The impact of high-benefit policies on the Canadian labor market during the COVID-19 pandemic. En A. J. Moshayedi (Ed.), <em>Proceedings of the 2025 International Conference on Hybrid Commerce, Human Capital, and Economic Dynamics (ICHCH 2025)</em> (Advances in Economics, Business and Management Research 374, pp. 710–717). Atlantis Press.
+                </li>
+                <li class="bibliography-item">
+                    Ebbinghaus, B., & Lehner, L. (2022). Cui bono – business or labour? Job retention policies during the COVID-19 pandemic in Europe. <em>Transfer: European Review of Labour and Research</em>, 28(1), 47–64. https://doi.org/10.1177/10242589221079151
+                </li>
+                <li class="bibliography-item">
+                    Heins, E., & Dukelow, F. (2022). Liberal welfare states. En B. Greve (Ed.), <em>De Gruyter Handbook of Contemporary Welfare States</em> (pp. 85–100). De Gruyter. https://doi.org/10.1515/9783110721768-006
+                </li>
+                <li class="bibliography-item">
+                    Hick, R., & Murphy, M. P. (2021). Common shock, different paths? Comparing social policy responses to COVID-19 in the UK and Ireland. <em>Social Policy & Administration</em>, 55(2), 312–325. https://doi.org/10.1111/spol.12677
+                </li>
+                <li class="bibliography-item">
+                    Mäntyneva, P., Ketonen, E.-L., & Hiilamo, H. (2023). Path dependence or steps for major reforms? Pandemic-related social protection measures in ten OECD countries. <em>Journal of International and Comparative Social Policy</em>, 39(1), 13–27. https://doi.org/10.1017/ics.2023.1
+                </li>
+                <li class="bibliography-item">
+                    PubMed Central. (s. f.). <em>COVID-19 amongst western democracies: A welfare state analysis</em>. National Center for Biotechnology Information. https://pubmed.ncbi.nlm.nih.gov/35492957/
+                </li>
+                <li class="bibliography-item">
+                    Spies-Butcher, B. (2020). The temporary welfare state: The political economy of JobKeeper, JobSeeker and "Snap Back". <em>Journal of Australian Political Economy</em>, (85), 155–163.
+                </li>
+                <li class="bibliography-item">
+                    Taylor & Francis Group. (s. f.). <em>The Covid-19 pandemic economic impacts and government responses across welfare regimes</em>. Taylor & Francis Online. https://www.tandfonline.com/
+                </li>
+                <li class="bibliography-item">
+                    University of Helsinki Library. (s. f.). <em>Instituting provision of benefits for families with children due to coronacrisis</em>. Universidad de Helsinki. https://helda.helsinki.fi/
+                </li>
+                <li class="bibliography-item">
+                    Zimmerman, L. (2025, 28 de agosto). Understanding shocks to welfare systems. <em>MIT News</em>, Massachusetts Institute of Technology. https://news.mit.edu/2025/understanding-shocks-to-welfare-systems-0828
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
     <script>
         let currentSlide = 0;
